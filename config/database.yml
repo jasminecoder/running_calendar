@@ -88,8 +88,9 @@ production:
   primary: &primary_production
     <<: *default
     database: running_calendar_production
-    username: running_calendar
-    password: <%= ENV["RUNNING_CALENDAR_DATABASE_PASSWORD"] %>
+    username: postgres
+    password: <%= ENV["POSTGRES_PASSWORD"] %>
+    host: <%= ENV["DB_HOST"] %>
   cache:
     <<: *primary_production
     database: running_calendar_production_cache
