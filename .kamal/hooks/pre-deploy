@@ -1,0 +1,4 @@
+#!/bin/sh
+
+# Boot accessories before deploying (ensures db is running)
+kamal accessory boot db
