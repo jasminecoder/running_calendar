@@ -184,21 +184,21 @@ This deployment spec establishes production infrastructure for the Running Calen
 **Dependencies:** Task Groups 3, 4, 5
 
 - [ ] 6.0 Complete initial deployment and operations setup
-  - [ ] 6.1 Run Kamal setup
+  - [x] 6.1 Run Kamal setup
     - From project root: `kamal setup`
     - This bootstraps Docker on server, installs Kamal proxy, and deploys app
     - Monitor output for any errors
     - Verify Docker is installed: `ssh root@<server-ip> docker --version`
-  - [ ] 6.2 Verify application deployment
+  - [x] 6.2 Verify application deployment
     - Check container status: `kamal app details`
     - View logs: `kamal logs`
     - Test health endpoint: `curl -I https://mxcorre.com/up`
     - Verify HTTP 200 response
-  - [ ] 6.3 Verify SSL certificate
+  - [x] 6.3 Verify SSL certificate
     - Visit https://mxcorre.com in browser
     - Check certificate is valid (padlock icon)
     - Verify certificate issuer is Let's Encrypt
-  - [ ] 6.4 Create PostgreSQL backup script on server
+  - [x] 6.4 Create PostgreSQL backup script on server
     - SSH into server: `ssh root@<server-ip>`
     - Create backup directory: `mkdir -p /opt/backups/postgres`
     - Create script: `/opt/backups/postgres/backup.sh`
@@ -211,11 +211,11 @@ This deployment spec establishes production infrastructure for the Running Calen
       ls -t $BACKUP_DIR/backup_*.sql | tail -n +8 | xargs -r rm
       ```
     - Make executable: `chmod +x /opt/backups/postgres/backup.sh`
-  - [ ] 6.5 Configure daily backup cron job
+  - [x] 6.5 Configure daily backup cron job
     - Edit crontab: `crontab -e`
     - Add line: `0 3 * * * /opt/backups/postgres/backup.sh >> /var/log/postgres-backup.log 2>&1`
     - This runs backup daily at 3:00 AM server time
-  - [ ] 6.6 Test backup script manually
+  - [x] 6.6 Test backup script manually
     - Run: `/opt/backups/postgres/backup.sh`
     - Verify backup file created: `ls -la /opt/backups/postgres/`
   - [ ] 6.7 Document deployment commands
