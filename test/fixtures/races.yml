@@ -1,35 +1,87 @@
-# Minimal fixtures for model tests
-# Full fixtures will be created in Task Group 3
+# Race fixtures covering all cities and statuses
+# Note: Images are attached in tests via test_helper or directly in test files
 
+# Draft races - future start times
 draft_race:
   name: Draft Marathon
   start_time: <%= 2.weeks.from_now %>
-  location_description: Downtown starting line
-  city: 0
-  status: 0
+  location_description: Downtown starting line near the main plaza
+  location_address: Avenida Revolucion 100, Tijuana
+  city: 0  # tijuana
+  status: 0  # draft
   cost: 25.00
+  registration_url: https://example.com/register
+  registration_info: Registration opens 2 weeks before race day
+  day_of_race_registration: true
+  notes: This race is still being planned
+  organizer_name: Baja Running Club
+  organizer_contact: contact@bajarunning.com
 
+tecate_draft:
+  name: Tecate Trail Run
+  start_time: <%= 3.weeks.from_now %>
+  location_description: Tecate Mountain Trails
+  city: 2  # tecate
+  status: 0  # draft
+  cost: 30.00
+
+# Published races - future start times
 published_race:
   name: Tijuana Marathon
   start_time: <%= 3.weeks.from_now %>
-  location_description: Tijuana city center
-  city: 0
-  status: 1
+  location_description: Tijuana city center, starting at Parque Teniente Guerrero
+  location_address: Calle 3ra y Av. Revolucion, Tijuana
+  city: 0  # tijuana
+  status: 1  # published
   published_at: <%= 1.day.ago %>
   cost: 50.00
+  registration_url: https://tijuanamarathon.com/register
+  registration_info: Early bird discount available until 1 week before race
+  day_of_race_registration: false
+  organizer_name: Tijuana Athletics Association
+  organizer_contact: info@tijuanaathletics.org
 
+rosarito_half:
+  name: Rosarito Beach Half Marathon
+  start_time: <%= 4.weeks.from_now %>
+  location_description: Rosarito Beach boardwalk, scenic oceanfront course
+  location_address: Blvd. Benito Juarez, Rosarito
+  city: 1  # rosarito
+  status: 1  # published
+  published_at: <%= 2.days.ago %>
+  cost: 45.00
+  registration_url: https://rosarito-running.mx/halfmarathon
+  day_of_race_registration: true
+  notes: Flat course perfect for beginners and PRs
+
+mexicali_5k:
+  name: Mexicali Morning 5K
+  start_time: <%= 5.weeks.from_now %>
+  location_description: Mexicali City Park
+  location_address: Av. Reforma 500, Mexicali
+  city: 3  # mexicali
+  status: 1  # published
+  published_at: <%= 3.days.ago %>
+  cost: 0.00
+  registration_info: Free community event - donations welcome
+
+# Completed race - past start time
 past_race:
   name: Past Race
   start_time: <%= 1.week.ago %>
-  location_description: Old location
-  city: 1
-  status: 2
+  location_description: Old location in Rosarito
+  city: 1  # rosarito
+  status: 2  # completed
   cost: 0.00
+  published_at: <%= 1.month.ago %>
+  notes: Great turnout with over 500 participants
 
+# Cancelled race - can have future or past time
 cancelled_race:
   name: Cancelled Race
   start_time: <%= 1.month.from_now %>
-  location_description: Cancelled venue
-  city: 2
-  status: 3
+  location_description: Cancelled venue in Tecate
+  city: 2  # tecate
+  status: 3  # cancelled
   cost: 35.00
+  notes: Cancelled due to unforeseen circumstances

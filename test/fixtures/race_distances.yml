@@ -1,27 +1,59 @@
-# Minimal fixtures for model tests
-# Full fixtures will be created in Task Group 3
+# Race distance fixtures
+# Includes both km and miles examples, single and multiple distances per race
 
+# Draft race - single distance
 draft_race_5k:
   race: draft_race
   distance_value: 5.0
-  distance_unit: 0
+  distance_unit: 0  # km
 
+# Tecate draft - single distance in miles
+tecate_draft_10mi:
+  race: tecate_draft
+  distance_value: 10.0
+  distance_unit: 1  # miles
+
+# Published race - multiple distances (full marathon + half)
 published_race_10k:
   race: published_race
   distance_value: 10.0
-  distance_unit: 0
+  distance_unit: 0  # km
 
 published_race_21k:
   race: published_race
   distance_value: 21.0
-  distance_unit: 0
+  distance_unit: 0  # km
 
+# Rosarito half - multiple distances
+rosarito_5k:
+  race: rosarito_half
+  distance_value: 5.0
+  distance_unit: 0  # km
+
+rosarito_10k:
+  race: rosarito_half
+  distance_value: 10.0
+  distance_unit: 0  # km
+
+rosarito_21k:
+  race: rosarito_half
+  distance_value: 21.0
+  distance_unit: 0  # km
+
+# Mexicali 5K - single distance
+mexicali_5k_distance:
+  race: mexicali_5k
+  distance_value: 5.0
+  distance_unit: 0  # km
+
+# Past race - full marathon
 past_race_marathon:
   race: past_race
   distance_value: 42.2
-  distance_unit: 0
+  distance_unit: 0  # km
 
+# Cancelled race - single distance
 cancelled_race_5k:
   race: cancelled_race
   distance_value: 5.0
-  distance_unit: 0
+  distance_unit: 0  # km

@@ -97,4 +97,90 @@ class RaceTest < ActiveSupport::TestCase
     assert_not race.valid?
     assert_includes race.errors[:base], "must have at least one race distance"
   end
+
+  # Additional strategic tests to fill coverage gaps
+
+  test "completed races can have past start_time" do
+    race = races(:past_race)
+    race.featured_image.attach(
+      io: File.open(Rails.root.join("test/fixtures/files/test_image.jpg")),
+      filename: "test.jpg",
+      content_type: "image/jpeg"
+    )
+
+    assert race.start_time < Time.current
+    assert_equal "completed", race.status
+    assert race.valid?, "Completed race with past start_time should be valid"
+  end
+
+  test "cancelled races can have past start_time" do
+    race = races(:cancelled_race)
+    race.featured_image.attach(
+      io: File.open(Rails.root.join("test/fixtures/files/test_image.jpg")),
+      filename: "test.jpg",
+      content_type: "image/jpeg"
+    )
+    race.start_time = 1.week.ago
+
+    assert race.start_time < Time.current
+    assert_equal "cancelled", race.status
+    assert race.valid?, "Cancelled race with past start_time should be valid"
+  end
+
+  test "draft races require future start_time" do
+    race = races(:draft_race)
+    race.featured_image.attach(
+      io: File.open(Rails.root.join("test/fixtures/files/test_image.jpg")),
+      filename: "test.jpg",
+      content_type: "image/jpeg"
+    )
+    race.start_time = 1.day.ago
+
+    assert_not race.valid?
+    assert_includes race.errors[:start_time], "must be in the future"
+  end
+
+  test "scope chaining works for upcoming by_city" do
+    tijuana_upcoming = Race.upcoming.by_city(:tijuana)
+    rosarito_upcoming = Race.upcoming.by_city(:rosarito)
+
+    assert_includes tijuana_upcoming, races(:published_race)
+    assert_not_includes tijuana_upcoming, races(:rosarito_half)
+    assert_includes rosarito_upcoming, races(:rosarito_half)
+    assert_not_includes rosarito_upcoming, races(:published_race)
+  end
+
+  test "validates registration_url format when present" do
+    race = races(:draft_race)
+    race.featured_image.attach(
+      io: File.open(Rails.root.join("test/fixtures/files/test_image.jpg")),
+      filename: "test.jpg",
+      content_type: "image/jpeg"
+    )
+
+    race.registration_url = "not-a-valid-url"
+    assert_not race.valid?
+    assert_includes race.errors[:registration_url], "is invalid"
+
+    race.registration_url = "https://example.com/register"
+    race.validate
+    assert_not_includes race.errors[:registration_url], "is invalid"
+  end
+
+  test "validates cost is greater than or equal to zero" do
+    race = races(:draft_race)
+    race.featured_image.attach(
+      io: File.open(Rails.root.join("test/fixtures/files/test_image.jpg")),
+      filename: "test.jpg",
+      content_type: "image/jpeg"
+    )
+
+    race.cost = -10
+    assert_not race.valid?
+    assert_includes race.errors[:cost], "must be greater than or equal to 0"
+
+    race.cost = 0
+    race.validate
+    assert_not_includes race.errors[:cost], "must be greater than or equal to 0"
+  end
 end
