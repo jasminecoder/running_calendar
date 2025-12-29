@@ -183,7 +183,7 @@ This deployment spec establishes production infrastructure for the Running Calen
 #### Task Group 6: Initial Deployment and Backup Setup
 **Dependencies:** Task Groups 3, 4, 5
 
-- [ ] 6.0 Complete initial deployment and operations setup
+- [x] 6.0 Complete initial deployment and operations setup
   - [x] 6.1 Run Kamal setup
     - From project root: `kamal setup`
     - This bootstraps Docker on server, installs Kamal proxy, and deploys app
@@ -218,7 +218,7 @@ This deployment spec establishes production infrastructure for the Running Calen
   - [x] 6.6 Test backup script manually
     - Run: `/opt/backups/postgres/backup.sh`
     - Verify backup file created: `ls -la /opt/backups/postgres/`
-  - [ ] 6.7 Document deployment commands
+  - [x] 6.7 Document deployment commands
     - Initial deploy: `kamal setup`
     - Subsequent deploys: `kamal deploy`
     - View logs: `kamal logs`
@@ -265,12 +265,12 @@ Recommended implementation sequence:
 
 After completing all tasks, verify:
 
-- [ ] https://mxcorre.com loads successfully
-- [ ] https://www.mxcorre.com redirects or loads successfully
-- [ ] SSL certificate shows as valid in browser
-- [ ] `kamal logs` shows Rails application running
-- [ ] `kamal console` provides Rails console access
-- [ ] UFW shows only ports 22, 80, 443 open
-- [ ] fail2ban is running and protecting SSH
-- [ ] PostgreSQL backup exists in `/opt/backups/postgres/`
-- [ ] Cron job is scheduled for daily backups
+- [x] https://mxcorre.com loads successfully
+- [x] https://www.mxcorre.com redirects or loads successfully
+- [x] SSL certificate shows as valid in browser
+- [x] `kamal logs` shows Rails application running
+- [x] `kamal console` provides Rails console access
+- [x] UFW shows only ports 22, 80, 443 open
+- [x] fail2ban is running and protecting SSH
+- [x] PostgreSQL backup exists in `/opt/backups/postgres/`
+- [x] Cron job is scheduled for daily backups
