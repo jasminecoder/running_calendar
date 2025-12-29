@@ -1,0 +1,35 @@
+# Minimal fixtures for model tests
+# Full fixtures will be created in Task Group 3
+
+draft_race:
+  name: Draft Marathon
+  start_time: <%= 2.weeks.from_now %>
+  location_description: Downtown starting line
+  city: 0
+  status: 0
+  cost: 25.00
+
+published_race:
+  name: Tijuana Marathon
+  start_time: <%= 3.weeks.from_now %>
+  location_description: Tijuana city center
+  city: 0
+  status: 1
+  published_at: <%= 1.day.ago %>
+  cost: 50.00
+
+past_race:
+  name: Past Race
+  start_time: <%= 1.week.ago %>
+  location_description: Old location
+  city: 1
+  status: 2
+  cost: 0.00
+
+cancelled_race:
+  name: Cancelled Race
+  start_time: <%= 1.month.from_now %>
+  location_description: Cancelled venue
+  city: 2
+  status: 3
+  cost: 35.00

@@ -12,7 +12,7 @@ This spec focuses on creating the foundational data layer for the running calend
 #### Task Group 1: Database Migrations
 **Dependencies:** None
 
-- [ ] 1.0 Complete database migrations
+- [x] 1.0 Complete database migrations
   - [x] 1.1 Create races table migration
     - Columns:
       - `name` (string, limit: 255, null: false)
@@ -57,8 +57,8 @@ This spec focuses on creating the foundational data layer for the running calend
 #### Task Group 2: Model Implementation
 **Dependencies:** Task Group 1
 
-- [ ] 2.0 Complete model implementation
-  - [ ] 2.1 Write 6-8 focused tests for Race model functionality
+- [x] 2.0 Complete model implementation
+  - [x] 2.1 Write 6-8 focused tests for Race model functionality
     - Test presence validations for required fields (name, start_time, location_description, city, status)
     - Test city enum values (tijuana, rosarito, tecate, mexicali)
     - Test status enum values (draft, published, completed, cancelled)
@@ -67,13 +67,13 @@ This spec focuses on creating the foundational data layer for the running calend
     - Test scopes: published, upcoming, past, by_city
     - Test has_many :race_distances association with dependent: :destroy
     - Test validation that race has at least one race_distance
-  - [ ] 2.2 Write 4-6 focused tests for RaceDistance model functionality
+  - [x] 2.2 Write 4-6 focused tests for RaceDistance model functionality
     - Test presence validations for distance_value and distance_unit
     - Test distance_unit enum values (km, miles)
     - Test distance_value greater than 0 validation
     - Test uniqueness of distance_value scoped to race_id
     - Test belongs_to :race association
-  - [ ] 2.3 Create Race model with enums and associations
+  - [x] 2.3 Create Race model with enums and associations
     - Inherit from ApplicationRecord
     - Define city enum: { tijuana: 0, rosarito: 1, tecate: 2, mexicali: 3 }
     - Define status enum: { draft: 0, published: 1, completed: 2, cancelled: 3 }
@@ -81,7 +81,7 @@ This spec focuses on creating the foundational data layer for the running calend
     - Add accepts_nested_attributes_for :race_distances
     - Add has_one_attached :featured_image
     - Add has_many_attached :additional_images
-  - [ ] 2.4 Add Race model validations
+  - [x] 2.4 Add Race model validations
     - Validate presence of: name, start_time, location_description, city, status
     - Validate name length maximum 255 characters
     - Validate start_time is in future only when status is draft or published
@@ -92,24 +92,24 @@ This spec focuses on creating the foundational data layer for the running calend
     - Validate file size less than 5 megabytes per image
     - Validate additional_images has maximum 10 images
     - Validate race has at least one race_distance
-  - [ ] 2.5 Add Race model scopes
+  - [x] 2.5 Add Race model scopes
     - `published` - races with status: :published
     - `upcoming` - published races with start_time in the future
     - `past` - races with start_time in the past
     - `by_city(city)` - filter by city enum value
-  - [ ] 2.6 Implement published_at callback
+  - [x] 2.6 Implement published_at callback
     - Add before_save callback to track status changes
     - Set published_at to current time when status changes to published
     - Preserve published_at when status changes away from published
-  - [ ] 2.7 Create RaceDistance model with enum and association
+  - [x] 2.7 Create RaceDistance model with enum and association
     - Inherit from ApplicationRecord
     - Define distance_unit enum: { km: 0, miles: 1 }
     - Add belongs_to :race
-  - [ ] 2.8 Add RaceDistance model validations
+  - [x] 2.8 Add RaceDistance model validations
     - Validate presence of: distance_value, distance_unit
     - Validate distance_value is greater than 0
     - Validate uniqueness of distance_value scoped to race_id
-  - [ ] 2.9 Ensure model tests pass
+  - [x] 2.9 Ensure model tests pass
     - Run `bin/rails test test/models/race_test.rb test/models/race_distance_test.rb`
     - Verify all 10-14 tests pass
     - Do NOT run the entire test suite at this stage

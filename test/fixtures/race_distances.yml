@@ -1,0 +1,27 @@
+# Minimal fixtures for model tests
+# Full fixtures will be created in Task Group 3
+
+draft_race_5k:
+  race: draft_race
+  distance_value: 5.0
+  distance_unit: 0
+
+published_race_10k:
+  race: published_race
+  distance_value: 10.0
+  distance_unit: 0
+
+published_race_21k:
+  race: published_race
+  distance_value: 21.0
+  distance_unit: 0
+
+past_race_marathon:
+  race: past_race
+  distance_value: 42.2
+  distance_unit: 0
+
+cancelled_race_5k:
+  race: cancelled_race
+  distance_value: 5.0
+  distance_unit: 0
