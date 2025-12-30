@@ -128,26 +128,26 @@ This spec focuses on creating the foundational data layer for the running calend
 #### Task Group 3: Fixtures and Seed Data
 **Dependencies:** Task Group 2
 
-- [ ] 3.0 Complete fixtures and seed data
-  - [ ] 3.1 Create races.yml fixture file
+- [x] 3.0 Complete fixtures and seed data
+  - [x] 3.1 Create races.yml fixture file
     - Create sample races in different statuses (draft, published, completed, cancelled)
     - Cover all four cities (tijuana, rosarito, tecate, mexicali)
     - Include races with and without optional fields
     - Include at least 4-6 fixture races
-  - [ ] 3.2 Create race_distances.yml fixture file
+  - [x] 3.2 Create race_distances.yml fixture file
     - Create distances for fixture races
     - Include both km and miles examples
     - Include races with single and multiple distances
-  - [ ] 3.3 Create seed images directory and placeholder images
+  - [x] 3.3 Create seed images directory and placeholder images
     - Create `db/seeds/images/` directory
     - Add 3-4 placeholder race images for seeding
-  - [ ] 3.4 Create development seeds in db/seeds.rb
+  - [x] 3.4 Create development seeds in db/seeds.rb
     - Create 2-3 sample races per city (8-12 total)
     - Mix of statuses: mostly published, some draft, one completed
     - Include varied distances (5K, 10K, 21K, 42K)
     - Attach images from `db/seeds/images/` folder
     - Include races with single and multiple distances
-  - [ ] 3.5 Verify fixtures and seeds work
+  - [x] 3.5 Verify fixtures and seeds work
     - Run `bin/rails db:fixtures:load` in test environment
     - Run `bin/rails db:seed` in development environment
     - Verify Race.count and RaceDistance.count match expected values
@@ -165,16 +165,16 @@ This spec focuses on creating the foundational data layer for the running calend
 #### Task Group 4: Test Review and Final Verification
 **Dependencies:** Task Groups 1-3
 
-- [ ] 4.0 Review tests and verify complete feature functionality
-  - [ ] 4.1 Review tests from Task Group 2
+- [x] 4.0 Review tests and verify complete feature functionality
+  - [x] 4.1 Review tests from Task Group 2
     - Review the 6-8 tests written for Race model (Task 2.1)
     - Review the 4-6 tests written for RaceDistance model (Task 2.2)
     - Total existing tests: approximately 10-14 tests
-  - [ ] 4.2 Analyze test coverage gaps for this feature only
+  - [x] 4.2 Analyze test coverage gaps for this feature only
     - Identify any critical model behaviors lacking test coverage
     - Focus ONLY on gaps related to Race and RaceDistance models
     - Prioritize validation edge cases and callback behavior
-  - [ ] 4.3 Write up to 6 additional strategic tests if needed
+  - [x] 4.3 Write up to 6 additional strategic tests if needed
     - Add maximum of 6 new tests to fill identified critical gaps
     - Consider testing:
       - Edge cases for start_time future validation (draft vs completed status)
@@ -182,11 +182,11 @@ This spec focuses on creating the foundational data layer for the running calend
       - Active Storage attachment content type rejection
       - Scope chaining (e.g., upcoming.by_city)
     - Skip exhaustive edge case testing
-  - [ ] 4.4 Run all feature-specific tests
+  - [x] 4.4 Run all feature-specific tests
     - Run `bin/rails test test/models/race_test.rb test/models/race_distance_test.rb`
     - Expected total: approximately 14-20 tests maximum
     - Verify all tests pass
-  - [ ] 4.5 Manual verification in Rails console
+  - [x] 4.5 Manual verification in Rails console
     - Create a Race with RaceDistance via nested attributes
     - Test status changes and published_at behavior
     - Test scope queries
@@ -205,18 +205,18 @@ This spec focuses on creating the foundational data layer for the running calend
 #### Task Group 5: Deploy to Production
 **Dependencies:** Task Groups 1-4
 
-- [ ] 5.0 Deploy to production
-  - [ ] 5.1 Run full test suite locally
+- [x] 5.0 Deploy to production
+  - [x] 5.1 Run full test suite locally
     - Run `bin/rails test`
     - Verify all tests pass before deploying
-  - [ ] 5.2 Commit all changes to git
+  - [x] 5.2 Commit all changes to git
     - Review changed files with `git status`
     - Stage and commit with descriptive message
-  - [ ] 5.3 Deploy to production with Kamal
+  - [x] 5.3 Deploy to production with Kamal
     - Run `kamal deploy`
     - Monitor output for any errors
     - Kamal automatically runs `db:migrate` during deployment
-  - [ ] 5.4 Verify deployment in production
+  - [x] 5.4 Verify deployment in production
     - Run `kamal console`
     - Verify migrations ran: `Race.count` (should be 0 initially)
     - Verify schema: `Race.column_names`

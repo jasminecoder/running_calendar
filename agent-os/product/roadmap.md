@@ -2,7 +2,7 @@
 
 1. [x] Push the app to Hetzner
 
-2. [ ] Race Model and Database Schema — Create the Race model with all necessary fields (name, date, start time, location description, location address (optional), city, distance (although not the rule, some races could have a few different distances like 5k and 10k), image, registration URL (optional), registration info (text field), day of race registration(yes/no), cost, notes (optional), status) and database migrations `S`
+2. [x] Race Model and Database Schema — Create the Race model with all necessary fields (name, date, start time, location description, location address (optional), city, distance (although not the rule, some races could have a few different distances like 5k and 10k), image, registration URL (optional), registration info (text field), day of race registration(yes/no), cost, notes (optional), status) and database migrations `S`
 
 3. [ ] Race Cards List Page — Build the main landing page displaying race cards ordered by upcoming date, with each card showing the race photo, name, date, distance and location `M`
 
