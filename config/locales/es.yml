@@ -1,0 +1,56 @@
+# Spanish locale file for mxcorre
+# UTF-8 encoding required for proper accent display
+
+es:
+  date:
+    formats:
+      full: "%A, %d de %B %Y"
+      month_year: "%B %Y"
+    day_names:
+      - Domingo
+      - Lunes
+      - Martes
+      - Miércoles
+      - Jueves
+      - Viernes
+      - Sábado
+    abbr_day_names:
+      - Dom
+      - Lun
+      - Mar
+      - Mié
+      - Jue
+      - Vie
+      - Sáb
+    month_names:
+      - ~
+      - Enero
+      - Febrero
+      - Marzo
+      - Abril
+      - Mayo
+      - Junio
+      - Julio
+      - Agosto
+      - Septiembre
+      - Octubre
+      - Noviembre
+      - Diciembre
+    abbr_month_names:
+      - ~
+      - Ene
+      - Feb
+      - Mar
+      - Abr
+      - May
+      - Jun
+      - Jul
+      - Ago
+      - Sep
+      - Oct
+      - Nov
+      - Dic
+  time:
+    formats:
+      full: "%A, %d de %B %Y a las %H:%M"
+      default: "%d de %B %Y %H:%M"

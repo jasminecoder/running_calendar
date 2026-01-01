@@ -11,10 +11,10 @@ Race.destroy_all
 # Image paths
 images_dir = Rails.root.join("db/seeds/images")
 image_files = {
-  tijuana: images_dir.join("race_tijuana.png"),
-  rosarito: images_dir.join("race_rosarito.png"),
-  tecate: images_dir.join("race_tecate.png"),
-  mexicali: images_dir.join("race_mexicali.png")
+  tijuana: images_dir.join("race_tijuana.jpg"),
+  rosarito: images_dir.join("race_rosarito.jpg"),
+  tecate: images_dir.join("race_tecate.jpg"),
+  mexicali: images_dir.join("race_mexicali.jpg")
 }
 
 # Helper method to attach image
@@ -24,7 +24,7 @@ def attach_featured_image(race, image_path)
   race.featured_image.attach(
     io: File.open(image_path),
     filename: File.basename(image_path),
-    content_type: "image/png"
+    content_type: "image/jpeg"
   )
 end
 

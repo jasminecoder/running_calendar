@@ -1,4 +1,31 @@
-<div style="display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 80vh; font-family: system-ui, sans-serif;">
-  <h1 style="font-size: 3rem; margin-bottom: 1rem;">MxCorre</h1>
-  <p style="color: #666;">Coming soon</p>
+<%# Wrapper with gradient background - includes spacer for navbar %>
+<div class="pt-20" style="background: linear-gradient(90deg, #1E3A5F 0%, #722F37 100%);">
+  <%# Main content with white background and colored sides %>
+  <div class="mx-[5px] md:mx-3 lg:mx-6 bg-white">
+    <%# Hero Section %>
+    <%= render "shared/hero" %>
+
+  <%# Race Cards Section %>
+  <div class="px-4 md:px-8 py-8">
+    <% if @races_by_month.present? %>
+      <% @races_by_month.each_with_index do |(month, races), index| %>
+        <%# Month subheading %>
+        <div class="<%= index > 0 ? 'mt-12' : '' %>">
+          <%= render "shared/month_subheading", month: month %>
+        </div>
+
+        <%# Race cards responsive grid %>
+        <%# Single column on mobile, 2 columns on tablet (md), 3 columns on desktop (lg) %>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <% races.each do |race| %>
+            <%= render "races/race_card", race: race %>
+          <% end %>
+        </div>
+      <% end %>
+    <% else %>
+      <%# Empty state %>
+      <%= render "shared/empty_state" %>
+    <% end %>
+  </div>
+  </div>
 </div>

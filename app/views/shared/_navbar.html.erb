@@ -1,0 +1,38 @@
+<nav class="fixed top-0 left-0 right-0 w-full z-50 px-4 py-6" style="background: linear-gradient(90deg, #1E3A5F 0%, #722F37 100%);" data-controller="menu">
+  <div class="max-w-7xl mx-auto flex items-center justify-between">
+    <%# Logo - aligned with content area (matching left margin) %>
+    <%= link_to root_path, class: "flex items-center gap-1 ml-[5px] md:ml-3 lg:ml-6", data: { testid: "logo" } do %>
+      <%# Runner icon %>
+      <i class="fa-solid fa-person-running text-5xl" style="color: #9CCC65;"></i>
+      <%# Single line text: mxCorre with only C in green %>
+      <span class="text-4xl font-medium" style="font-family: 'Playfair Display', serif;">
+        <span class="text-white">mx</span><span style="color: #9CCC65;">C</span><span class="text-white">orre</span>
+      </span>
+    <% end %>
+
+    <%# Hamburger Menu Button %>
+    <button
+      type="button"
+      class="flex flex-col items-end gap-1 p-2 focus:outline-none cursor-pointer"
+      data-testid="hamburger-button"
+      data-action="click->menu#toggle"
+      aria-label="Toggle menu"
+    >
+      <%# Custom hamburger: top/bottom lines longer than middle %>
+      <span class="block bg-white transition-all duration-300" style="width: 28px; height: 2px;"></span>
+      <span class="block bg-white transition-all duration-300" style="width: 18px; height: 2px;"></span>
+      <span class="block bg-white transition-all duration-300" style="width: 28px; height: 2px;"></span>
+    </button>
+  </div>
+
+  <%# Mobile Menu (hidden by default) %>
+  <div
+    class="hidden mt-4 pb-4"
+    data-testid="mobile-menu"
+    data-menu-target="menu"
+  >
+    <div class="flex flex-col items-center gap-4">
+      <%= link_to "Contact Us", contact_path, class: "text-white hover:text-green-300 transition-colors font-medium" %>
+    </div>
+  </div>
+</nav>

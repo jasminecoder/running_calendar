@@ -1,0 +1,6 @@
+<%# Month subheading partial %>
+<%# Required local: month (Date object representing the beginning of the month) %>
+
+<h2 data-testid="month-subheading" class="month-subheading text-xl font-bold mb-6 mt-8 first:mt-0" style="color: #9CCC65;">
+  <%= I18n.l(month, format: "%B %Y").capitalize %>
+</h2>
